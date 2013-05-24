@@ -1,0 +1,16 @@
+
+# *.coffee
+# *.pdf
+# *.png
+# *.tex
+*.ai
+*.aux
+# *.gitignore
+*.log
+*.nav
+*.out
+*.snm
+*.toc
+*.vrb
+.picasa*
+node_modules/
