@@ -2,10 +2,14 @@
 ############################################################################################################
 diff_match_patch          = require 'googlediff'
 TRM                       = require 'coffeenode-trm'
+#...........................................................................................................
+red                       = TRM.red.bind   TRM
+white                     = TRM.white.bind TRM
+green                     = TRM.green.bind TRM
 
 
 #-----------------------------------------------------------------------------------------------------------
-new_diff = ( text1, text2 ) ->
+@_new_diff = ( text1, text2 ) ->
   dmp = new diff_match_patch()
   d   = dmp.diff_main text1, text2
   R   =
@@ -14,7 +18,7 @@ new_diff = ( text1, text2 ) ->
   return R
 
 #-----------------------------------------------------------------------------------------------------------
-cleanup = ( me )  ->
+@_cleanup = ( me )  ->
   { d
     dmp } = me
   dmp.Diff_EditCost = 10
@@ -23,25 +27,25 @@ cleanup = ( me )  ->
   return me
 
 #-----------------------------------------------------------------------------------------------------------
-$.analyze = ( text1, text2 ) ->
+@analyze = ( text1, text2 ) ->
   { d
-    dmp } = cleanup new_diff text1, text2
+    dmp } = @_cleanup @_new_diff text1, text2
   return d
 
 #-----------------------------------------------------------------------------------------------------------
-$.colorize = ( text1, text2 ) ->
+@colorize = ( text1, text2 ) ->
   R = []
   for part in @analyze text1, text2
     [ action
       text    ] = part
-    R.push ( get_color action ) text
+    R.push ( @_get_color action ) text
   return R.join ''
 
 #-----------------------------------------------------------------------------------------------------------
-get_color = ( action ) ->
-  return TRM.red    if action == -1
-  return TRM.white  if action ==  0
-  return TRM.green  if action == +1
+@_get_color = ( action ) ->
+  return red    if action == -1
+  return white  if action ==  0
+  return green  if action == +1
 
 
 

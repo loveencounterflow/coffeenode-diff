@@ -1,8 +1,8 @@
 {
   "name": "coffeenode-diff",
   "version": "0.1.0",
-  "description": "ERROR: No README.md file found!",
-  "main": "index.js",
+  "description": "easy color-coded diffs, using google's diff/match/patch",
+  "main": "main.coffee",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
