@@ -1,6 +1,6 @@
 {
   "name": "coffeenode-diff",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "easy color-coded diffs, using google's diff/match/patch",
   "main": "main.js",
   "scripts": {
@@ -12,7 +12,7 @@
   },
   "bin": {
     "cnddiff": "./main.js"
-    },
+  },
   "author": "",
   "license": "BSD",
   "dependencies": {
