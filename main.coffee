@@ -3,9 +3,9 @@
 diff_match_patch          = require 'googlediff'
 TRM                       = require 'coffeenode-trm'
 #...........................................................................................................
-red                       = TRM.red.bind   TRM
-white                     = TRM.white.bind TRM
-green                     = TRM.green.bind TRM
+red                       = TRM.RED.bind    TRM
+white                     = TRM.white.bind  TRM
+green                     = TRM.GREEN.bind  TRM
 
 
 #-----------------------------------------------------------------------------------------------------------
