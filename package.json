@@ -10,10 +10,14 @@
     "type": "git",
     "url": "https://github.com/loveencounterflow/coffeenode-diff"
   },
+  "bin": {
+    "cnddiff": "./main.js"
+    },
   "author": "",
   "license": "BSD",
   "dependencies": {
     "coffeenode-trm": "^0.1.20",
+    "docopt": "^0.4.0",
     "googlediff": "~0.1.0"
   },
   "readmeFilename": "README.md",

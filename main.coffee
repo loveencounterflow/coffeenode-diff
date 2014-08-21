@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 
 ############################################################################################################
 diff_match_patch          = require 'googlediff'
@@ -9,9 +10,9 @@ green                     = TRM.GREEN.bind  TRM
 
 
 #-----------------------------------------------------------------------------------------------------------
-@_new_diff = ( text1, text2 ) ->
+@_new_diff = ( text_1, text_2 ) ->
   dmp = new diff_match_patch()
-  d   = dmp.diff_main text1, text2
+  d   = dmp.diff_main text_1, text_2
   R   =
     dmp: dmp
     d:   d
@@ -27,15 +28,15 @@ green                     = TRM.GREEN.bind  TRM
   return me
 
 #-----------------------------------------------------------------------------------------------------------
-@analyze = ( text1, text2 ) ->
+@analyze = ( text_1, text_2 ) ->
   { d
-    dmp } = @_cleanup @_new_diff text1, text2
+    dmp } = @_cleanup @_new_diff text_1, text_2
   return d
 
 #-----------------------------------------------------------------------------------------------------------
-@colorize = ( text1, text2 ) ->
+@colorize = ( text_1, text_2 ) ->
   R = []
-  for part in @analyze text1, text2
+  for part in @analyze text_1, text_2
     [ action
       text    ] = part
     R.push ( @_get_color action ) text
@@ -47,7 +48,30 @@ green                     = TRM.GREEN.bind  TRM
   return white  if action ==  0
   return green  if action == +1
 
+#-----------------------------------------------------------------------------------------------------------
+@_main = ( options ) ->
+  njs_fs  = require 'fs'
+  log     = console.log
+  console.log options
+  njs_fs.readFile options[ '<file_1>' ], encoding: 'utf-8', ( error, text_1 ) =>
+    throw error if error?
+    njs_fs.readFile options[ '<file_2>' ], encoding: 'utf-8', ( error, text_2 ) =>
+      throw error if error?
+      white = TRM.grey.bind TRM
+      console.log @colorize text_1, text_2
 
+############################################################################################################
+unless module.parent?
+  docopt = ( require 'docopt' ).docopt
+  usage = """
+  Usage: diff <file_1> <file_2>
+
+  Options:
+    -h, --help
+    -v, --version
+  """
+  options = docopt usage, version: ( require './package.json' )[ 'version' ]
+  @_main options
 
 
 
