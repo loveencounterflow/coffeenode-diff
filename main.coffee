@@ -1,11 +1,11 @@
 
 ############################################################################################################
 diff_match_patch          = require 'googlediff'
-TRM                       = require 'coffeenode-trm'
+CND                       = require 'coffeenode-cnd'
 #...........................................................................................................
-red                       = TRM.red.bind   TRM
-white                     = TRM.white.bind TRM
-green                     = TRM.green.bind TRM
+red                       = CND.red.bind   CND
+white                     = CND.white.bind CND
+green                     = CND.green.bind CND
 
 
 #-----------------------------------------------------------------------------------------------------------

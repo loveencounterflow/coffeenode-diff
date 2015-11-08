@@ -4,6 +4,7 @@
   "description": "easy color-coded diffs, using google's diff/match/patch",
   "main": "main.coffee",
   "scripts": {
+    "build": "echo \"compiling main.coffee\" && coffee -c main.coffee",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -11,12 +12,15 @@
     "url": "https://github.com/loveencounterflow/coffeenode-diff"
   },
   "author": "",
-  "license": "BSD",
+  "license": "MIT",
   "dependencies": {
+    "cnd": "^1.0.9",
     "googlediff": "~0.1.0"
   },
   "readmeFilename": "README.md",
-  "devDependencies": {},
+  "devDependencies": {
+    "coffee-script": "^1.10.0"
+  },
   "keywords": [
     "diff",
     "match",
