@@ -1,6 +1,6 @@
 {
   "name": "coffeenode-diff",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "easy color-coded diffs, using google's diff/match/patch",
   "main": "main.coffee",
   "scripts": {
