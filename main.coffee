@@ -1,13 +1,12 @@
 #!/usr/bin/env node
 
 ############################################################################################################
-TRM                       = require 'coffeenode-trm'
-red                       = TRM.RED.bind    TRM
-white                     = TRM.white.bind  TRM
-green                     = TRM.GREEN.bind  TRM
-#...........................................................................................................
-### https://github.com/shimondoodkin/googlediff ###
 diff_match_patch          = require 'googlediff'
+CND                       = require 'cnd'
+#...........................................................................................................
+red                       = CND.red.bind   CND
+white                     = CND.white.bind CND
+green                     = CND.green.bind CND
 
 
 #-----------------------------------------------------------------------------------------------------------
