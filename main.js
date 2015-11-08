@@ -4,7 +4,7 @@
 
   diff_match_patch = require('googlediff');
 
-  CND = require('coffeenode-cnd');
+  CND = require('cnd');
 
   red = CND.red.bind(CND);
 
